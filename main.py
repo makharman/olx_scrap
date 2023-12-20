@@ -7,7 +7,7 @@ headers = {
 }
 for i in range(1,4):
     print(f'Parsing {i} page')
-    url = f'https://www.olx.kz/list/q-%D0%B5%D0%BB%D0%BA%D0%B8/'  
+    url = f'https://www.olx.kz/list/q-%D0%B5%D0%BB%D0%BA%D0%B8/?page={i}'  
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'lxml')
     cards = soup.find_all("div",class_='css-qfzx1y')
