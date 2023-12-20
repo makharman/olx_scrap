@@ -12,11 +12,11 @@ for i in range(1,4):
     soup = BeautifulSoup(response.text, 'lxml')
     cards = soup.find_all("div",class_='css-qfzx1y')
 
-for card in cards:
-    card_url = card.a['href']
-    url = f'https://www.olx.kz{card_url}.html'
-    response = requests.get(url=url)
-    soup = BeautifulSoup(response.text,'lxml')
-    description = soup.find('div', 'css-1t507yq.er34gjf0')
-    print(description.text)       
-
+    for card in cards:
+        card_url = card.a['href']
+        url = f'https://www.olx.kz{card_url}.html'
+        response = requests.get(url=url)
+        soup = BeautifulSoup(response.text,'lxml')
+        description = soup.find('div', 'css-1t507yq.er34gjf0')
+        print(description.text)       
+    
